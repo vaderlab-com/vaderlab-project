@@ -1,0 +1,6 @@
+[submodule "source/VaderlabEAVFormBundle"]
+	path = source/VaderlabEAVFormBundle
+	url = https://github.com/vaderlab-com/VaderlabEAVFormBundle.git
+[submodule "source/VaderlabEAVCoreBundle"]
+	path = source/VaderlabEAVCoreBundle
+	url = https://github.com/vaderlab-com/VaderlabEAVBundle.git

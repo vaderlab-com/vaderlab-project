@@ -1,0 +1,8 @@
+vaderlab_eav_core:
+  entity:
+    value_types:
+      integer: Vaderlab\EAV\Core\Entity\ValueType\ValueInteger
+      float: Vaderlab\EAV\Core\Entity\ValueType\ValueFloat
+      boolean: Vaderlab\EAV\Core\Entity\ValueType\ValueBoolean
+      string: Vaderlab\EAV\Core\Entity\ValueType\ValueString
+      text: Vaderlab\EAV\Core\Entity\ValueType\ValueText

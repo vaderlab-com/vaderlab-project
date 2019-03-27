@@ -1,0 +1,46 @@
+version: '3.1'
+services:
+  php:
+    image: vaderlab/php:7.3.3-xdebug
+    container_name: php
+    env_file: .env
+    volumes:
+      - "$APP_DIR:/app"
+      - ./docker/var/log/docker/php:/var/log
+
+  web:
+    image: nginx
+    restart: always
+    depends_on:
+      - php
+      - db
+    env_file: .env
+    ports:
+      - "${NGINX_PORT_EXPOSE}:80"
+    volumes:
+      - "${APP_DIR}:/app"
+      - "${NGNIX_CONF}:/etc/nginx/conf.d/"
+      - "${NGINX_LOGS}:/var/log/nginx"
+
+  db:
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    env_file: .env
+    volumes:
+      - $MYSQL_DB_PATH:/var/lib/mysql
+    ports:
+      - "${MYSQL_PORT_EXPOSE}:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "${ADMINER_PORT_EXPOSE}:8080"
+    env_file:
+      - .env
