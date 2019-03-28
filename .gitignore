@@ -4,3 +4,4 @@
 docker/var/log/docker/web/nginx/
 docker/var/log/docker/php/
 docker/var/lib/mysql/
+docker-php-xdebug/

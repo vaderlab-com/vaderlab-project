@@ -83,14 +83,14 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../source/VaderlabEAVCoreBundle",
+            "url": "/source/VaderlabEAVCoreBundle",
             "options": {
                 "symlink": true
             }
         },
         {
             "type": "path",
-            "url": "../source/VaderlabEAVFormBundle",
+            "url": "/source/VaderlabEAVFormBundle",
             "options": {
                 "symlink": true
             }

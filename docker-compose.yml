@@ -6,6 +6,8 @@ services:
     env_file: .env
     volumes:
       - "$APP_DIR:/app"
+      - "${SOURCE_DIR}:/source"
+      - "${COMPOSER_BIN}:/usr/local/bin/composer"
       - ./docker/var/log/docker/php:/var/log
 
   web:
@@ -19,6 +21,7 @@ services:
       - "${NGINX_PORT_EXPOSE}:80"
     volumes:
       - "${APP_DIR}:/app"
+      - "${SOURCE_DIR}:/source"
       - "${NGNIX_CONF}:/etc/nginx/conf.d/"
       - "${NGINX_LOGS}:/var/log/nginx"
 
